@@ -1,29 +1,17 @@
 <template>
   <div class="container">
     <div class="menu">
-      <button @click="currentPage = 'user'">User</button>
-      <button @click="currentPage = 'todo'">Todo List</button>
+      <router-link to="/user"><button>User</button></router-link>
+      <router-link to="/todo"><button>Todo List</button></router-link>
+      <router-link to="/album"><button>Album</button></router-link>
     </div>
-
-    <UserPage v-if="currentPage === 'user'" />
-    <TodoPage v-if="currentPage === 'todo'" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import UserPage from './components/UserPage.vue';
-import TodoPage from './components/TodoPage.vue';
-
 export default {
-  components: {
-    UserPage,
-    TodoPage
-  },
-  data() {
-    return {
-      currentPage: 'user'
-    };
-  }
+  name: 'App'
 };
 </script>
 
